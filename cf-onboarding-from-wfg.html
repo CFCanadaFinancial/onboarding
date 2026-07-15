@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From WFG to Independence — Advisor Onboarding | CF Canada Financial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#182958;
+  --orange:#e64e2d;
+  --warm:#F5F0E8;
+  --charcoal:#1C1C1C;
+  --muted:#8a9bb5;
+  --warm-deep:#ece5d8;
+  --line:rgba(24,41,88,.14);
+  --shadow:0 18px 50px -24px rgba(24,41,88,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--warm);
+  color:var(--charcoal);
+  font-family:'DM Sans',sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;color:var(--navy);font-weight:600;line-height:1.12}
+a{color:var(--navy)}
+button{font-family:'DM Sans',sans-serif;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,240,232,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brandmark{display:flex;align-items:center;gap:14px;text-decoration:none;background:none;border:none}
+.cf-square{
+  width:42px;height:42px;background:var(--orange);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.9), inset 0 0 0 5px var(--orange);
+}
+.cf-square span{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;color:#fff;font-size:22px}
+.brand-words{text-align:left}
+.brand-words strong{display:block;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy);font-weight:600;letter-spacing:.01em}
+.brand-words small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.topnav{display:flex;gap:6px;align-items:center}
+.topnav button{
+  background:none;border:none;font-size:14px;font-weight:500;color:var(--navy);
+  padding:9px 14px;border-radius:6px;letter-spacing:.02em;
+}
+.topnav button:hover{background:var(--warm-deep)}
+.topnav button.cta{background:var(--navy);color:var(--warm)}
+.topnav button.cta:hover{background:#0f1c40}
+@media(max-width:760px){.topnav button:not(.cta){display:none}}
+
+/* ---------- views ---------- */
+.view{display:none}
+.view.active{display:block;animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 30px;text-align:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);
+  margin-bottom:26px;
+}
+.eyebrow::before,.eyebrow::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.hero h1{font-size:clamp(44px,6.5vw,76px);font-weight:500;max-width:820px;margin:0 auto 8px}
+.hero h1 em{font-style:italic;font-weight:500}
+.hero p.lede{max-width:620px;margin:22px auto 0;font-size:18.5px;color:#3a4258}
+.elena-chip{
+  display:inline-flex;align-items:center;gap:12px;margin-top:34px;
+  background:#fff;border:1px solid var(--line);border-radius:100px;
+  padding:9px 22px 9px 10px;box-shadow:var(--shadow);text-align:left;
+}
+.elena-avatar{
+  width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--warm);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;flex-shrink:0;
+  position:relative;
+}
+.elena-avatar::after{
+  content:"";position:absolute;bottom:1px;right:1px;width:10px;height:10px;border-radius:50%;
+  background:var(--orange);border:2px solid #fff;
+}
+.elena-chip b{display:block;font-size:14px;color:var(--navy)}
+.elena-chip small{display:block;font-size:12.5px;color:#5a6379}
+
+/* ---------- the junction (signature element) ---------- */
+.junction{position:relative;padding:8px 0 96px}
+.junction svg.rail{display:block;margin:0 auto;width:min(760px,88%);height:110px}
+.rail path{fill:none;stroke:var(--navy);stroke-width:1.5;opacity:.55}
+.rail circle{fill:var(--orange)}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:-6px}
+@media(max-width:860px){.paths{grid-template-columns:1fr}.junction svg.rail{display:none}}
+.path-card{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:36px 32px 30px;text-align:left;display:flex;flex-direction:column;
+  transition:transform .22s ease, box-shadow .22s ease;position:relative;overflow:hidden;
+}
+.path-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.path-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--navy)}
+.path-tag{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.path-card h3{font-size:29px;margin-bottom:12px;font-weight:600}
+.path-card p{font-size:15px;color:#3a4258;flex-grow:1}
+.path-meta{
+  margin:20px 0 22px;padding-top:18px;border-top:1px solid var(--line);
+  display:flex;gap:22px;font-size:13px;color:#5a6379;
+}
+.path-meta b{display:block;color:var(--navy);font-size:15px;font-family:'Cormorant Garamond',serif;font-style:italic}
+.path-btn{
+  background:var(--navy);color:var(--warm);border:none;border-radius:8px;
+  padding:13px 20px;font-size:15px;font-weight:600;letter-spacing:.02em;width:100%;
+  transition:background .2s;
+}
+.path-btn:hover{background:#0f1c40}
+.path-btn span{color:var(--orange);margin-left:6px}
+
+/* ---------- reassurance strip ---------- */
+.strip{background:var(--navy);color:var(--warm);padding:74px 0}
+.strip .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+@media(max-width:860px){.strip .wrap{grid-template-columns:1fr;gap:36px}}
+.strip h2{color:var(--warm);font-size:clamp(30px,3.6vw,42px);font-weight:500}
+.strip h2 em{font-style:italic}
+.strip p{color:#c7cfe2;font-size:16px;margin-top:16px}
+.strip ul{list-style:none;margin-top:8px}
+.strip li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(245,240,232,.12);font-size:15.5px;color:#dde3f0}
+.strip li:last-child{border-bottom:none}
+.strip li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:9px}
+
+/* ---------- pathway pages ---------- */
+.pathhead{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.back{
+  background:none;border:none;color:var(--muted);font-size:13.5px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:26px;padding:0;
+}
+.back:hover{color:var(--navy)}
+.pathhead h1{font-size:clamp(36px,5vw,58px);font-weight:500;max-width:760px}
+.pathhead h1 em{font-style:italic}
+.pathhead .sub{max-width:660px;margin-top:16px;color:#3a4258;font-size:17px}
+.headline-meta{display:flex;gap:40px;margin-top:30px;flex-wrap:wrap}
+.headline-meta div small{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.headline-meta div b{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--navy);font-weight:600}
+
+.pathbody{display:grid;grid-template-columns:1fr 320px;gap:56px;padding:56px 0 90px;align-items:start}
+@media(max-width:960px){.pathbody{grid-template-columns:1fr}}
+
+/* step rail checklist */
+.progress-block{margin-bottom:36px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 26px}
+.progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600;color:var(--navy)}
+.progress-top .pct{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px}
+.progress-track{height:6px;background:var(--warm-deep);border-radius:100px;margin-top:12px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--navy);border-radius:100px;transition:width .4s ease;position:relative}
+.progress-fill::after{content:"";position:absolute;right:0;top:-2px;width:10px;height:10px;border-radius:50%;background:var(--orange)}
+
+.steps{position:relative}
+.steps::before{content:"";position:absolute;left:21px;top:26px;bottom:26px;width:1.5px;background:var(--line)}
+.step{
+  position:relative;display:flex;gap:22px;padding:20px 0;
+}
+.step-dot{
+  width:44px;height:44px;border-radius:50%;background:#fff;border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--navy);
+  transition:all .25s;cursor:pointer;
+}
+.step.done .step-dot{background:var(--navy);border-color:var(--navy);color:transparent;position:relative}
+.step.done .step-dot::after{
+  content:"";position:absolute;width:12px;height:7px;border-left:2.5px solid var(--warm);
+  border-bottom:2.5px solid var(--warm);transform:rotate(-45deg) translateY(-1px);
+}
+.step-body{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 24px;transition:border-color .25s}
+.step.done .step-body{opacity:.62}
+.step-body:hover{border-color:var(--muted)}
+.step-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.step-title h3{font-size:22px;font-weight:600}
+.step-time{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.step-body p{font-size:14.5px;color:#3a4258;margin-top:8px}
+.step-tasks{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.task{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#2a3148}
+.task::before{content:"—";color:var(--orange);flex-shrink:0}
+.jargon{border-bottom:1.5px dotted var(--orange);cursor:help;position:relative}
+.flag{
+  margin-top:14px;font-size:13px;background:var(--warm);border-left:3px solid var(--orange);
+  padding:10px 14px;border-radius:0 6px 6px 0;color:#2a3148;
+}
+.flag b{color:var(--navy)}
+
+/* sidebar */
+.sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:22px}
+.side-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 26px 24px}
+.side-card h4{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--navy);font-weight:600;margin-bottom:12px}
+.side-card p{font-size:14px;color:#3a4258}
+.side-card.navy{background:var(--navy);border-color:var(--navy)}
+.side-card.navy h4{color:var(--warm)}
+.side-card.navy p{color:#c7cfe2}
+.side-btn{
+  display:block;width:100%;margin-top:16px;background:var(--warm);color:var(--navy);
+  border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:600;text-align:center;text-decoration:none;
+}
+.side-btn:hover{background:#fff}
+.glossary dt{font-weight:600;color:var(--navy);font-size:14px;margin-top:12px}
+.glossary dt:first-child{margin-top:0}
+.glossary dd{font-size:13px;color:#5a6379;margin-top:2px}
+
+/* ---------- footer (CF standard) ---------- */
+footer{background:var(--navy);padding:34px 0;margin-top:0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-logo{display:flex;align-items:center;gap:16px}
+.foot-words strong{display:block;font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--warm);font-weight:500}
+.foot-rule{width:190px;height:5px;background:var(--orange);border-radius:1px;margin:5px 0 4px}
+.foot-words em{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;color:#c7cfe2}
+.foot-right{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.7}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brandmark">
+      <div class="cf-square"><span>CF</span></div>
+      <div class="brand-words"><strong>Canada Financial</strong><small>Transition · From WFG</small></div>
+    </div>
+    <nav class="topnav">
+      <a class="cta" style="text-decoration:none;background:var(--navy);color:var(--warm);padding:9px 18px;border-radius:6px;font-size:14px;font-weight:600" href="mailto:onboarding@cfcanadafinancial.com">Contact Elena</a>
+    </nav>
+  </div>
+</div>
+
+<section class="view active" id="view-wfg">
+  <div class="wrap">
+    <div class="pathhead">
+      <h1>From WFG to independence — <em>discreetly, and in order.</em></h1>
+      <p class="sub">Your license is yours; it moves with you. What changes is the structure around it: from a captive hierarchy to an independent MGA where your clients are your clients and your compensation is transparent. Here's how the move is done cleanly.</p>
+      <div class="headline-meta">
+        <div><small>Steps</small><b>Eight</b></div>
+        <div><small>Typical duration</small><b>2–4 weeks</b></div>
+        <div><small>Confidentiality</small><b>Absolute</b></div>
+      </div>
+    </div>
+    <div class="pathbody">
+      <div>
+        <div class="progress-block">
+          <div class="progress-top"><span>Your progress — tap a number to mark a step complete</span><span class="pct" data-pct="wfg">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" data-fill="wfg"></div></div>
+        </div>
+        <div class="steps" data-path="wfg">
+
+          <div class="step"><div class="step-dot">1</div>
+            <div class="step-body">
+              <div class="step-title"><h3>A confidential conversation</h3><span class="step-time">Day 1</span></div>
+              <p>Before any paperwork: a private call with CF leadership. We map your current situation — license status, production, your WFG hierarchy position — and confirm the move makes sense for you. Nothing is communicated to anyone until you decide.</p>
+              <div class="step-tasks">
+                <div class="task">Book a confidential discovery call.</div>
+                <div class="task">Bring your questions about compensation, ownership of clients, and independence — this is the meeting for them.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><div class="step-dot">2</div>
+            <div class="step-body">
+              <div class="step-title"><h3>Review your WFG agreement</h3><span class="step-time">Day 1–5</span></div>
+              <p>Your existing agreement may contain non-solicitation or other post-departure obligations. Understanding them <em>before</em> you move is what makes a transition clean instead of contentious.</p>
+              <div class="step-tasks">
+                <div class="task">Locate your signed WFG associate agreement.</div>
+                <div class="task">Review its non-solicitation and confidentiality clauses.</div>
+              </div>
+              <div class="flag"><b>Escalation point:</b> CF coordinates the transition process, but interpreting your contractual obligations is a legal question. If your agreement contains restrictive clauses, we'll recommend you get independent legal advice — we will never guess at this on your behalf.</div>
+            </div>
+          </div>
+
+          <div class="step"><div class="step-dot">3</div>
+            <div class="step-body">
+              <div class="step-title"><h3>Verify license &amp; E&amp;O standing</h3><span class="step-time">Day 3–7</span></div>
+              <p>Your provincial license and continuing education standing transfer with you — no re-exam. We confirm everything is current so nothing surprises us mid-transfer.</p>
+              <div class="step-tasks">
+                <div class="task">Confirm your license is active and CE credits are current.</div>
+                <div class="task">Confirm your E&amp;O coverage and whether it's individual or provided through your current structure — if it lapses at departure, we arrange replacement coverage <em>before</em> you resign.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><div class="step-dot">4</div>
+            <div class="step-body">
+              <div class="step-title"><h3>Prepare CF contracting in parallel</h3><span class="step-time">Week 1–2</span></div>
+              <p>We prepare your CF Canada Financial contracting package and Apexa updates <em>before</em> your departure date, so your out-of-market gap — the days you can't write new business — is as close to zero as possible.</p>
+              <div class="step-tasks">
+                <div class="task">Complete the CF contracting package and advisor screening checklist.</div>
+                <div class="task">Update your Apexa profile to reflect the pending transfer (Elena guides the exact sequence and timing).</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><div class="step-dot">5</div>
+            <div class="step-body">
+              <div class="step-title"><h3>Resign from WFG</h3><span class="step-time">Your chosen date</span></div>
+              <p>A short, professional, written notice. No drama, no burned bridges — the industry is small and your reputation travels with you.</p>
+              <div class="step-tasks">
+                <div class="task">Submit written notice per your agreement's requirements.</div>
+                <div class="task">Keep a dated copy of everything you send and receive.</div>
+                <div class="task">Return any WFG property and complete their exit requirements promptly.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><div class="step-dot">6</div>
+            <div class="step-body">
+              <div class="step-title"><h3>Carrier transfers</h3><span class="step-time">Week 2–3</span></div>
+              <p>Each carrier you're appointed with processes a transfer of your contracting to CF Canada Financial. Some carriers require a release or non-objection from your former organization; others process on notice. We manage each carrier's process for you.</p>
+              <div class="step-tasks">
+                <div class="task">Give Elena your full list of carrier appointments and advisor codes.</div>
+                <div class="task">Sign the transfer/appointment forms we prepare per carrier.</div>
+                <div class="task">Track each carrier's confirmation — Elena reports status weekly until all are through.</div>
+              </div>
+              <div class="flag"><b>Good to know:</b> carrier release policies differ and change. Elena confirms the current requirement per carrier for your file rather than relying on what was true last year.</div>
+            </div>
+          </div>
+
+          <div class="step"><div class="step-dot">7</div>
+            <div class="step-body">
+              <div class="step-title"><h3>Client communication — done compliantly</h3><span class="step-time">Week 2–4</span></div>
+              <p>What you may say, to whom, and when depends on your former agreement and privacy rules. We help you build a communication plan that protects you while keeping the relationships you've earned.</p>
+              <div class="step-tasks">
+                <div class="task">Build your client communication plan with CF's guidance (and legal advice where clauses require it).</div>
+                <div class="task">Update your professional profiles — LinkedIn, email signature, voicemail — on the agreed date.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step"><div class="step-dot">8</div>
+            <div class="step-body">
+              <div class="step-title"><h3>Welcome to independence</h3><span class="step-time">Week 3–4</span></div>
+              <p>Orientation with your CF team: our carrier lineup, advanced-market resources, illustration tools, and the support model. Then the part you came for — writing business as an independent advisor.</p>
+              <div class="step-tasks">
+                <div class="task">Complete CF orientation and platform access setup.</div>
+                <div class="task">Meet your practice-development contact and set your 90-day plan.</div>
+              </div>
+              <div class="flag"><b>The difference you'll feel:</b> full product shelf across major Canadian carriers, transparent compensation, and no hierarchy between you and your clients.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <aside class="sidebar">
+        <div class="side-card navy">
+          <h4>Confidential by default</h4>
+          <p>Every conversation on this path is private until you decide otherwise. No calls to your office, no traceable communication without your consent.</p>
+          <a class="side-btn" href="mailto:onboarding@cfcanadafinancial.com">Request a private call</a>
+        </div>
+        <div class="side-card">
+          <h4>Plain-language glossary</h4>
+          <dl class="glossary">
+            <dt>Captive vs. independent</dt><dd>A captive advisor sells within one organization's structure; an independent advisor contracts through an MGA with access to the full market.</dd>
+            <dt>Non-solicitation</dt><dd>A contract clause limiting who you may approach after leaving. Interpretation belongs to a lawyer, not a checklist.</dd>
+            <dt>Out-of-market gap</dt><dd>Days between leaving one organization and being contracted at the next, when you can't submit new business. Our job is to minimize it.</dd>
+            <dt>Carrier release</dt><dd>Some insurers require your former organization's sign-off before transferring your appointment.</dd>
+          </dl>
+        </div>
+        <div class="side-card">
+          <h4>A note on accuracy</h4>
+          <p>Contractual and legal questions about your departure are referred to independent legal advice. Licensing and carrier requirements are confirmed by CF staff for your specific file.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER — CF STANDARD ══════════ -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="foot-logo">
+      <div class="cf-square" style="width:52px;height:52px"><span style="font-size:26px">CF</span></div>
+      <div class="foot-words">
+        <strong>Canada Financial<span style="font-size:12px;vertical-align:super">®</span></strong>
+        <div class="foot-rule"></div>
+        <em>Our Strength is Our People</em>
+      </div>
+    </div>
+    <div class="foot-right">
+      CF Canada Financial · Vancouver, BC · Regulated by BCFSA<br>
+      Onboarding portal · Guided by Elena, Onboarding Experience Coordinator
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- checklist progress (persists where storage is available) ---------- */
+const PATH = 'wfg';
+let done = new Set();
+try{
+  const raw = window.localStorage.getItem('cf-onb-'+PATH);
+  if(raw) done = new Set(JSON.parse(raw));
+}catch(e){}
+
+function save(){
+  try{ window.localStorage.setItem('cf-onb-'+PATH, JSON.stringify([...done])); }catch(e){}
+}
+
+function render(){
+  const steps = document.querySelectorAll('.steps .step');
+  steps.forEach((s,i)=> s.classList.toggle('done', done.has(i)));
+  const pct = steps.length ? Math.round(done.size / steps.length * 100) : 0;
+  document.querySelector('.pct').textContent = pct + '%';
+  document.querySelector('.progress-fill').style.width = pct + '%';
+}
+
+document.querySelectorAll('.steps .step').forEach((step,i)=>{
+  step.querySelector('.step-dot').addEventListener('click',()=>{
+    done.has(i) ? done.delete(i) : done.add(i);
+    save(); render();
+  });
+});
+render();
+</script>
+</body>
+</html>
